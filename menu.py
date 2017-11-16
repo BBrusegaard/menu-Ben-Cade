@@ -15,8 +15,7 @@ def main():
         try:
             choice = int(input('Enter your choice:'))
         except ValueError:
-            print('')
-            print('ERROR...Invalid choice!')
+            invalid_display()
             continue
         if choice == ADDITION_PROBLEM:
             return handle_choice_addition_problem()
@@ -33,90 +32,129 @@ def main():
         elif choice == CALCULUS_PROBLEM:
             return handle_choice_calculus_equation()
         elif choice == QUIT_CHOICE:
-            print('')
-            print('Quitting program...')
+            print('┌------------------------┐')
+            print('|    Quitting Program... |')
+            print('└------------------------┘')
+            print('__________________________')
         else:
-            print('')
-            print("You didn't make a correct selection!")
+            print('┌--------------------------------------┐')
+            print("| You didn't make a correct selection! |")
+            print('└--------------------------------------┘')
+            print('________________________________________')
                 
 def Correct_Display():
     print('┌------------------------┐')
     print('|        CORRECT!        |')
     print('└------------------------┘')
+    print('__________________________')
     
 def Incorrect_Display():
     print('┌------------------------┐')
     print('|       INCORRECT!       |')
     print('└------------------------┘')
+    print('__________________________')
+    
+def invalid_display():
+    print('┌------------------------┐')
+    print('|     INVALID CHOICE!    |')
+    print('└------------------------┘')
+    print('__________________________')
     
 def handle_choice_addition_problem():
     print('What is 10 + 8?')
     add_problem = 0
-    add_problem = int(input('Enter your answer: '))
+    try:
+        add_problem = int(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
+        return main()
     if add_problem == 18:
-        print(Correct_Display())
+        Correct_Display()
     elif add_problem != 18:
-        print(Incorrect_Display())
+        Incorrect_Display()
     return main()
         
 def handle_choice_hard_addition_problem():
     print('What is 284.3 + 324.8: ')
     hard_add_problem = 0.0
-    hard_add_problem = float(input('Enter your answer: '))
+    try:
+        hard_add_problem = float(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
+        return main()
     if hard_add_problem == 609.1:
-        return(Correct_Display())
+        Correct_Display()
     elif hard_add_problem != 609.1:
-        return(Incorrect_Display())
+        Incorrect_Display()
     return main()
         
 def handle_choice_division_problem():
     print('What is 10 / 2?')
     div_problem = 0
-    div_problem = int(input('Enter your answer: '))
+    try:
+        div_problem = int(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
+        return main()
     if div_problem == 5:
-        return(Correct_Display())
+        Correct_Display()
     elif div_problem != 5:
-        return(Incorrect_Display())
+        Incorrect_Display()
     return main()
 
 def handle_choice_hard_division_problem():
     print('What is 17 / 40')
     hard_div_problem = 0.0
-    hard_div_problem = float(input('Enter your answer: '))
+    try:
+        hard_div_problem = float(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
+        return main()
     if hard_div_problem == 0.425:
-        return(Correct_Display())
+        Correct_Display()
     elif hard_div_problem != 0.425:
-        return(Incorrect_Display())
+        Incorrect_Display()
     return main()
     
 def handle_choice_multiplication_problem():
     print('What is 5 x 10')
     mult_problem = 0
-    mult_problem = int(input('Enter your answer: '))
+    try:
+        mult_problem = int(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
     if mult_problem == 50:
-        return(Correct_Display())
+        Correct_Display()
     elif mult_problem != 50:
-        return(Incorrect_Display())
+        Incorrect_Display()
     return main()
 
 def handle_choice_hard_multiplication_problem():
     print('What is 2.5 x 3.45, to the third decimal place')
     hard_mult_problem = 0.0
-    hard_mult_problem = float(input('Enter your answer: '))
+    try:
+        hard_mult_problem = float(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
+        return main()
     if hard_mult_problem == 8.625:
-        return(Correct_Display())
+        Correct_Display()
     elif hard_mult_problem != 8.625:
-        return(Incorrect_Display())
+        Incorrect_Display()
     return main()
         
 def handle_choice_calculus_equation():
     print('What is the derivative of 4x^3')
     calc_problem = ''
-    calc_problem = str(input('Enter your answer: '))
+    try:
+        calc_problem = str(input('Enter your answer: '))
+    except ValueError:
+        invalid_display()
+        return main()
     if calc_problem == '12x^2':
-        return(Correct_Display())
+        Correct_Display()
     elif calc_problem != '12x^2':
-        return(Incorrect_Display())
+        Incorrect_Display()
     return main()
         
 def display_menu():
@@ -133,4 +171,3 @@ def display_menu():
     print('8) Quit')
 
 main()
-asd
